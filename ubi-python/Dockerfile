@@ -1,5 +1,4 @@
-
-# This is an example installing python, troubleshooting utilities and ssh on a redhat ubi image. 
+# This is an example on installing python, troubleshooting utilities and ssh on a redhat ubi image. 
 # You could modify this as needed and choose a relevant base image if you don't need to setup a custom image from scratch. 
 # Ex: FROM registry.access.redhat.com/ubi9/python-39
 # For more try, docker search registry.access.redhat.com/ubi9 | grep -i python 
@@ -21,8 +20,9 @@ WORKDIR /app
 COPY . ./
 
 # Install packages
-RUN pip3 install --upgrade pip && \
-    pip3 install -r requirements.txt
+RUN dnf install -y python3-pip \
+	&& pip3 install --upgrade pip \
+	&& pip3 install -r requirements.txt
 
 #Install troubleshooting tools. 
 RUN yum install procps -y \

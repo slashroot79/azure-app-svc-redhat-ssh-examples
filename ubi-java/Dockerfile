@@ -1,5 +1,4 @@
-
-# This is an example installing tomcat, java 17, supervisor, troubleshooting utilities and ssh on a redhat ubi image. 
+# This is an example on installing tomcat, java 17, supervisor, troubleshooting utilities and ssh on a redhat ubi image. 
 # You could modify this as needed and choose a relevant base image if you don't need to setup a custom image from scratch. 
 # Ex: FROM registry.access.redhat.com/ubi9/openjdk-17-runtime
 # For more try: docker search registry.access.redhat.com/ubi9 | grep -i jdk 
@@ -9,7 +8,7 @@ FROM registry.access.redhat.com/ubi9
 LABEL maintainer="Ragu Karuturi"
 
 #Install java v17 and set env vars
-RUN yum update -y && yum install -y java-17-openjdk
+RUN yum update -y && yum install -y java-17-openjdk-devel
 
 #Download and install tomcat v10.
 RUN curl -k https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz -o /tmp/apache-tomcat-10.0.27.tar.gz 

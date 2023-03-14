@@ -1,5 +1,4 @@
-
-# This is an example installing dotnet, troubleshooting utilities and ssh on a redhat ubi image. 
+# This is an example on installing dotnet, troubleshooting utilities and ssh on a redhat ubi image. 
 # You could modify this as needed and choose a relevant base image if you don't need to setup a custom image from scratch. 
 # Ex: FROM registry.access.redhat.com/ubi8/dotnet-60-runtime
 # For more try: docker search registry.access.redhat.com/ubi8 | grep -i dotnet 
@@ -20,7 +19,7 @@ WORKDIR /app
 # Copy src and resources
 COPY . ./
 
-# Generate a Framework Dependent Executable which is also the default for .NET3.1+ runtimes specific to the target OS. 
+# Generate a Framework Dependent Executable which is also the default for .NET 3.1+ runtimes specific to the target OS. 
 RUN cd rkubidotnet \
 	&& dotnet publish -r linux-x64 --self-contained false -o build
 
